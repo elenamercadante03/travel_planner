@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Your Trips</h1>
+
+<p>
+    Total Trips:
+    <strong>{{ trips|length }}</strong>
+</p>
+
+<p>
+    Manage your travel plans and destinations.
+</p>
+
+<br>
+
+<a href="{{ url_for('new_trip') }}">
+    <button>Create New Trip</button>
+</a>
+
+<br><br>
+
+{% if trips %}
+    <ul>
+        {% for trip in trips %}
+            <li>
+                <a href="{{ url_for('trip_detail', trip_id=trip.id) }}">
+                    <strong>{{ trip.title }}</strong>
+                </a>
+
+                <br>
+
+                {{ trip.start_date }} - {{ trip.end_date }}
+
+                <br><br>
+
+                <form method="POST"
+                      action="{{ url_for('delete_trip', trip_id=trip.id) }}"
+                      onsubmit="return confirm('Are you sure you want to delete this trip?');">
+
+                    <button type="submit">Delete Trip</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No trips available.</p>
+{% endif %}
+
+{% endblock %}
+

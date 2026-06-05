@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Planner</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="icon"
+          href="{{ url_for('static', filename='plane.png') }}">
+</head>
+<body>
+
+<nav>
+    <a href="{{ url_for('index') }}">✈️ Travel Planner</a>
+
+    <a href="{{ url_for('about') }}">About</a>
+
+    {% if session.get('user_id') %}
+
+        <span style="color:white; margin-left:20px; margin-right:20px;">
+            Welcome, {{ session.get('username') }}
+        </span>
+
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+
+        <a href="{{ url_for('logout') }}">Logout</a>
+
+    {% else %}
+
+        <a href="{{ url_for('register') }}">Register</a>
+
+        <a href="{{ url_for('login') }}">Login</a>
+
+    {% endif %}
+</nav>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>
+

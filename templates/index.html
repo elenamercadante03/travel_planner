@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>✈️ Travel Planner</h1>
+
+<p>
+    Organize your trips, save destinations and check live weather information.
+</p>
+
+<br>
+
+<a href="{{ url_for('register') }}">
+    <button>Start Planning</button>
+</a>
+
+{% endblock %}

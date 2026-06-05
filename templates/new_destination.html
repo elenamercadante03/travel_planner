@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add Destination</h1>
+
+<form method="POST">
+
+    <label>City</label><br>
+    <input type="text" name="city" required><br><br>
+
+    <label>Country</label><br>
+    <input type="text" name="country" required><br><br>
+
+    <label>Notes</label><br>
+    <textarea name="notes"></textarea><br><br>
+
+    <button type="submit">Save destination</button>
+
+</form>
+
+{% endblock %}

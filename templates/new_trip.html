@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Create New Trip</h1>
+
+<form method="POST">
+    <label>Trip title</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <label>Start date</label><br>
+    <input type="date" name="start_date" required><br><br>
+
+    <label>End date</label><br>
+    <input type="date" name="end_date" required><br><br>
+
+    <button type="submit">Save trip</button>
+</form>
+{% endblock %}
